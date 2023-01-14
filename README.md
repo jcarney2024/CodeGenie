@@ -9,7 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 - npm
 - OpenAI API key (You can get one by signing up on OpenAI website)
 ### Installing
-1. Clone the repository: `git clone https://github.com/your_username/coderr.git`
+1. Clone the repository: `git clone https://github.com/jcarney2024/codegenie.git`
 2. Install the dependencies: `npm install`
 3. Replace YOUR_API_KEY in the CodeInput.js file with your actual API key.
 4. Start the development server: `npm start`
