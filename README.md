@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5fff5573-a329-48f4-85ce-36c3ad181c54/deploy-status)](https://app.netlify.com/sites/codegenie/deploys)
 # CodeGenie
 CodeGenie is a web application that allows users to input a snippet of code and instructions, which then returns a response from OpenAI's Codex API. This app is built using React for the frontend and JavaScript for the backend, making use of Axios library to communicate with the Codex API.
 
