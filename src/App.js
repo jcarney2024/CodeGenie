@@ -1,7 +1,6 @@
 import './App.css';
 import React from 'react';
 import CodeInput from './CodeInput';
-import bootstrap from 'bootstrap'
 
 function App() {
   return (
