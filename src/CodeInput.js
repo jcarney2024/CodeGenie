@@ -15,7 +15,7 @@ function CodeInput() {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer process.env.REPLACE_WITH_YOUR_API_KEY'
+        'Authorization': 'Bearer env.REPLACE_WITH_YOUR_API'
       }
     })
     .then((res) => {
