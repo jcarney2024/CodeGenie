@@ -8,22 +8,24 @@ function CodeInput() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post('https://codex.openai.com/v1/code_completions', {
-      prompt: instructions,
-      context: codeSnippet,
+    axios.post('https://api.openai.com/v1/edits', {
+      instruction: instructions,
+      input: codeSnippet,
+      model: 'code-davinci-edit-001',
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer YOUR_API_KEY'
+        'Authorization': 'Bearer $REPLACE_WITH_YOUR_API_KEY'
       }
     })
     .then((res) => {
-        setResponse(res.data);
+        let text = res.data.choices[0].text;
+        setResponse(text);
     })
     .catch((err) => {
         console.log(err);
     });
-  }
+}
 
   return (
     <form onSubmit={handleSubmit}>
