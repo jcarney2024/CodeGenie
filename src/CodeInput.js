@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
+import './CodeInput.css';
 
 function CodeInput() {
   const [codeSnippet, setCodeSnippet] = useState('');
@@ -21,22 +22,22 @@ function CodeInput() {
         'Authorization': 'Bearer ' + process.env.REACT_APP_REPLACE_WITH_YOUR_API_KEY,
       }
     })
-    .then((res) => {
+      .then((res) => {
         let text = res.data.choices[0].text;
         setResponse(text);
         setLoading(false);
-    })
-    .catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
         setLoading(false);
-    });
+      });
   }
 
   return (
     <Container>
       <Row>
         <Col>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className="wider-form">
             <Form.Group>
               <Form.Label>Code Snippet</Form.Label>
               <Form.Control as="textarea" value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
@@ -45,15 +46,17 @@ function CodeInput() {
               <Form.Label>Instructions</Form.Label>
               <Form.Control as="textarea" rows="3" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
             </Form.Group>
-            <Button variant="primary" type="submit" disabled={isLoading}>
-              {isLoading ? <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-              /> : 'Submit'}
-            </Button>
+            <div className="button-spacing">
+              <Button variant="primary" type="submit" disabled={isLoading}>
+                {isLoading ? <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                /> : 'Submit'}
+              </Button>
+            </div>
             <Form.Group>
               <Form.Label>Response</Form.Label>
               <Form.Control as="textarea" value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
