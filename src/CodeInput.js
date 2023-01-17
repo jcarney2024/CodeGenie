@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
+import { DiffViewer } from 'react-diff-view';
 
 function CodeInput() {
   const [codeSnippet, setCodeSnippet] = useState('');
@@ -21,15 +22,15 @@ function CodeInput() {
         'Authorization': 'Bearer ' + process.env.REACT_APP_REPLACE_WITH_YOUR_API_KEY,
       }
     })
-    .then((res) => {
+      .then((res) => {
         let text = res.data.choices[0].text;
         setResponse(text);
         setLoading(false);
-    })
-    .catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
         setLoading(false);
-    });
+      });
   }
 
   return (
@@ -56,7 +57,10 @@ function CodeInput() {
             </Button>
             <Form.Group>
               <Form.Label>Response</Form.Label>
-              <Form.Control as="textarea" value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
+              <DiffViewer
+                oldValue={codeSnippet}
+                newValue={response}
+              />
             </Form.Group>
           </Form>
         </Col>
