@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 function CodeInput() {
   const [codeSnippet, setCodeSnippet] = useState('');
@@ -25,27 +26,32 @@ function CodeInput() {
     .catch((err) => {
         console.log(err);
     });
-}
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Code Snippet:
-        <textarea value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
-      </label>
-      <br />
-      <label>
-        Instructions:
-        <input type="text" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
-      </label>
-      <br />
-      <button type="submit">Submit</button>
-      <br />
-      <label>
-        Response:
-        <textarea value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
-      </label>
-    </form>
+    <Container>
+      <Row>
+        <Col>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group>
+              <Form.Label>Code Snippet</Form.Label>
+              <Form.Control as="textarea" value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Instructions</Form.Label>
+              <Form.Control type="text" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+            <Form.Group>
+              <Form.Label>Response</Form.Label>
+              <Form.Control as="textarea" value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
+            </Form.Group>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
