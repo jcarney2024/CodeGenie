@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Spinner } from 'react-bootstrap';
-import Diff from 'react-diff';
+import { DiffViewer } from 'react-diff-view';
 
 function CodeInput() {
   const [codeSnippet, setCodeSnippet] = useState('');
@@ -22,33 +22,38 @@ function CodeInput() {
         'Authorization': 'Bearer ' + process.env.REACT_APP_REPLACE_WITH_YOUR_API_KEY,
       }
     })
-      .then((res) => {
+    .then((res) => {
         let text = res.data.choices[0].text;
         setResponse(text);
         setIsLoading(false);
-      })
-      .catch((err) => {
+    })
+    .catch((err) => {
         console.log(err);
         setIsLoading(false);
-      });
+    });
   }
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Label>Code Snippet</Form.Label>
-        <Form.Control as="textarea" rows="5" value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
+        <Form.Control as="textarea" rows="5" value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Instructions</Form.Label>
-        <Form.Control as="textarea" rows="3" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
+        <Form.Control type="text" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
       </Form.Group>
       <Button variant="primary" type="submit" disabled={isLoading}>
         {isLoading ? <Spinner animation="border" size="sm" role="status" aria-hidden="true" /> : 'Submit'}
       </Button>
       <Form.Group>
         <Form.Label>Response</Form.Label>
-        <Diff inputA={codeSnippet} inputB={response} type='chars' />
+        <DiffViewer
+          oldValue={codeSnippet}
+          newValue={response}
+          splitView={false}
+        />
       </Form.Group>
     </Form>
   );
