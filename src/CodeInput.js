@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
 
 function CodeInput() {
   const [codeSnippet, setCodeSnippet] = useState('');
   const [instructions, setInstructions] = useState('');
   const [response, setResponse] = useState('');
+  const [isLoading, setLoading] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     axios.post('https://api.openai.com/v1/edits', {
       instruction: instructions,
       input: codeSnippet,
@@ -22,9 +24,11 @@ function CodeInput() {
     .then((res) => {
         let text = res.data.choices[0].text;
         setResponse(text);
+        setLoading(false);
     })
     .catch((err) => {
         console.log(err);
+        setLoading(false);
     });
   }
 
@@ -39,10 +43,16 @@ function CodeInput() {
             </Form.Group>
             <Form.Group>
               <Form.Label>Instructions</Form.Label>
-              <Form.Control type="text" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
+              <Form.Control as="textarea" rows="3" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
+            <Button variant="primary" type="submit" disabled={isLoading}>
+              {isLoading ? <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              /> : 'Submit'}
             </Button>
             <Form.Group>
               <Form.Label>Response</Form.Label>
