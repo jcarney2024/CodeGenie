@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Spinner } from 'react-bootstrap';
-import { DiffViewer } from 'react-diff-view';
+import ReactDiffViewer from 'react-diff-viewer';
 
 function CodeInput() {
   const [codeSnippet, setCodeSnippet] = useState('');
@@ -49,11 +49,7 @@ function CodeInput() {
       </Button>
       <Form.Group>
         <Form.Label>Response</Form.Label>
-        <DiffViewer
-          oldValue={codeSnippet}
-          newValue={response}
-          splitView={false}
-        />
+        <ReactDiffViewer oldValue={codeSnippet} newValue={response} splitView={false}/>
       </Form.Group>
     </Form>
   );
