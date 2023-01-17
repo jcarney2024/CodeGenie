@@ -3,11 +3,19 @@ import axios from 'axios';
 import { Form, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
 import './CodeInput.css';
 
+const containerStyles = {
+  height: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+};
+
 function CodeInput() {
   const [codeSnippet, setCodeSnippet] = useState('');
   const [instructions, setInstructions] = useState('');
   const [response, setResponse] = useState('');
   const [isLoading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -33,37 +41,56 @@ function CodeInput() {
       });
   }
 
+  function handleCopy() {
+    navigator.clipboard.writeText(response)
+      .then(() => {
+        setCopied(true);
+      })
+      .catch(err => {
+        console.log('Failed to copy text: ', err);
+      });
+  }
+
   return (
-    <Container>
-      <Row>
-        <Col>
-          <Form onSubmit={handleSubmit} className="wider-form">
-            <Form.Group>
-              <Form.Label>Code Snippet</Form.Label>
-              <Form.Control as="textarea" value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Instructions</Form.Label>
-              <Form.Control as="textarea" rows="3" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
-            </Form.Group>
-            <div className="button-spacing">
-              <Button variant="primary" type="submit" disabled={isLoading}>
-                {isLoading ? <Spinner
-                  as="span"
-                  animation="border"
-                  size="sm"
-                  role="status"
-                  aria-hidden="true"
-                /> : 'Submit'}
-              </Button>
-            </div>
-            <Form.Group>
-              <Form.Label>Response</Form.Label>
-              <Form.Control as="textarea" value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
-            </Form.Group>
-          </Form>
-        </Col>
-      </Row>
+    <Container style={containerStyles} className='d-flex align-items-center'>
+      <div className="d-flex align-items-center">
+        <Form onSubmit={handleSubmit}>
+          <Row className="grid-container mx-auto">
+            <Col xs={6}>
+              <Form.Group className="text-box">
+                <Form.Label>Code Snippet</Form.Label>
+                <Form.Control as="textarea" value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
+              </Form.Group>
+              <Form.Group className="text-box">
+                <Form.Label>Instructions</Form.Label>
+                <Form.Control as="textarea" rows="3" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
+              </Form.Group>
+              <div className="button-spacing">
+                <Button variant="primary" type="submit" disabled={isLoading}>
+                  {isLoading ? <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  /> : 'Submit'}
+                </Button>
+              </div>
+            </Col>
+            <Col xs={6}>
+              <Form.Group className="response-text text-box">
+                <Form.Label>Response</Form.Label>
+                <Form.Control as="textarea" value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
+                {response && <div className="copy-button">
+                  <Button variant="secondary" onClick={handleCopy}>
+                    {copied ? <i className="fas fa-check"></i> : 'Copy to clipboard'}
+                  </Button>
+                </div>}
+              </Form.Group>
+            </Col>
+          </Row>
+        </Form>
+      </div>
     </Container>
   );
 }

@@ -1,7 +1,17 @@
-.wider-form {
-    width: 200%;
-}
-
 .button-spacing {
     margin-top: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.response-text {
+    height:100%;
+}
+
+.text-box {
+    width: 200%;
 }
