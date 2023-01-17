@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Form, Button, Spinner } from 'react-bootstrap';
-import ReactDiffViewer from 'react-diff-viewer';
+import { Form, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
 
 function CodeInput() {
   const [codeSnippet, setCodeSnippet] = useState('');
   const [instructions, setInstructions] = useState('');
   const [response, setResponse] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
-    setIsLoading(true);
+    setLoading(true);
     axios.post('https://api.openai.com/v1/edits', {
       instruction: instructions,
       input: codeSnippet,
@@ -25,33 +24,44 @@ function CodeInput() {
     .then((res) => {
         let text = res.data.choices[0].text;
         setResponse(text);
-        setIsLoading(false);
+        setLoading(false);
     })
     .catch((err) => {
         console.log(err);
-        setIsLoading(false);
+        setLoading(false);
     });
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group>
-        <Form.Label>Code Snippet</Form.Label>
-        <Form.Control as="textarea" rows="5" value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Instructions</Form.Label>
-        <Form.Control type="text" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
-      </Form.Group>
-      <Button variant="primary" type="submit" disabled={isLoading}>
-        {isLoading ? <Spinner animation="border" size="sm" role="status" aria-hidden="true" /> : 'Submit'}
-      </Button>
-      <Form.Group>
-        <Form.Label>Response</Form.Label>
-        <ReactDiffViewer oldValue={codeSnippet} newValue={response} splitView={false}/>
-      </Form.Group>
-    </Form>
+    <Container>
+      <Row>
+        <Col>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group>
+              <Form.Label>Code Snippet</Form.Label>
+              <Form.Control as="textarea" value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Instructions</Form.Label>
+              <Form.Control as="textarea" rows="3" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
+            </Form.Group>
+            <Button variant="primary" type="submit" disabled={isLoading}>
+              {isLoading ? <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              /> : 'Submit'}
+            </Button>
+            <Form.Group>
+              <Form.Label>Response</Form.Label>
+              <Form.Control as="textarea" value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
+            </Form.Group>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
