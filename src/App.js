@@ -6,7 +6,9 @@ function App() {
   return (
     <div className="container">
       <h1 class="h1">CodeGenie</h1>
-      <CodeInput />
+      <div className="center-content" style={{ paddingTop: "20px"}}>
+        <CodeInput />
+      </div>
     </div>
   );
 }

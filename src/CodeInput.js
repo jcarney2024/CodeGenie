@@ -7,9 +7,18 @@ import './CodeInput.css';
 
 const containerStyles = {
   height: '100%',
+  width: '80%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center'
+};
+
+const responseTextBoxStyles = {
+  marginBottom: '10px'
+};
+
+const formStyles = {
+  marginTop: '50px'
 };
 
 function CodeInput() {
@@ -65,7 +74,7 @@ function CodeInput() {
   return (
     <Container style={containerStyles} className='d-flex align-items-center'>
       <div className="d-flex align-items-center">
-        <Form onSubmit={handleSubmit}>
+        <Form style={formStyles} onSubmit={handleSubmit}>
           <Row className="grid-container mx-auto">
             <Col xs={6}>
               <Form.Group className="text-box">
@@ -89,7 +98,7 @@ function CodeInput() {
               </div>
             </Col>
             <Col xs={6}>
-              <Form.Group className="response-text text-box">
+              <Form.Group className="response-text text-box" style={responseTextBoxStyles}>
                 <Form.Label>Response</Form.Label>
                 <Form.Control as="textarea" value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
                 {response &&
