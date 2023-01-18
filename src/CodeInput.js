@@ -52,8 +52,14 @@ function CodeInput() {
         }, 5000);
       })
       .catch(err => {
-        console.log('Failed to copy text: ', err); 
+        console.log('Failed to copy text: ', err);
       });
+  }
+
+  function handleCopyToCode() {
+    setCodeSnippet(response);
+    setResponse("");
+    setCopied(false);
   }
 
   return (
@@ -86,11 +92,18 @@ function CodeInput() {
               <Form.Group className="response-text text-box">
                 <Form.Label>Response</Form.Label>
                 <Form.Control as="textarea" value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
-                {response && <div className="copy-button">
-                  <Button variant="secondary" onClick={handleCopy}>
-                    {copied ? <FontAwesomeIcon icon={faCheck} /> : 'Copy to clipboard'}
-                  </Button>
-                </div>}
+                {response &&
+                  <div>
+                    <div className="copy-button">
+                      <Button variant="secondary" onClick={handleCopy}>
+                        {copied ? <FontAwesomeIcon icon={faCheck} /> : 'Copy to clipboard'}
+                      </Button>
+                    </div>
+                    <div className="copy-to-code-button">
+                      <Button variant="secondary" onClick={handleCopyToCode}>Copy to Code Snippet</Button>
+                    </div>
+                  </div>
+                }
               </Form.Group>
             </Col>
           </Row>
