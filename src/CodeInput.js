@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import './CodeInput.css';
 
 const containerStyles = {
@@ -83,7 +85,7 @@ function CodeInput() {
                 <Form.Control as="textarea" value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
                 {response && <div className="copy-button">
                   <Button variant="secondary" onClick={handleCopy}>
-                    {copied ? <i className="fas fa-check"></i> : 'Copy to clipboard'}
+                    {copied ? <FontAwesomeIcon icon={faCheck} /> : 'Copy to clipboard'}
                   </Button>
                 </div>}
               </Form.Group>
