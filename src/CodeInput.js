@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios/index.js';
+import axios from 'axios';
 import { Form, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
 import './CodeInput.css';
 
