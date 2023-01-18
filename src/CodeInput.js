@@ -47,9 +47,12 @@ function CodeInput() {
     navigator.clipboard.writeText(response)
       .then(() => {
         setCopied(true);
+        setTimeout(() => {
+          setCopied(false);
+        }, 5000);
       })
       .catch(err => {
-        console.log('Failed to copy text: ', err);
+        console.log('Failed to copy text: ', err); 
       });
   }
 
