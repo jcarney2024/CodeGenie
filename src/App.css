@@ -34,10 +34,15 @@ footer a {
 }
 
 footer a {
-  margin-top: -15px;
+  margin-top: -31px;
   text-decoration: none;
 }
 
 footer a svg {
   margin-right: 3px;
+}
+
+footer p {
+  margin-top: -15px;
+  margin-left: 8px
 }

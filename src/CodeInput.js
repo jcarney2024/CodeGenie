@@ -36,8 +36,8 @@ function CodeInput() {
       instruction: instructions,
       input: codeSnippet,
       model: 'code-davinci-edit-001',
-      temperature: '0',
-      top_p: '1',
+      temperature: 0,
+      top_p: 1,
     }, {
       headers: {
         'Content-Type': 'application/json',
@@ -83,11 +83,11 @@ function CodeInput() {
               <Col xs={6}>
                 <Form.Group className="text-box">
                   <Form.Label>Code Snippet</Form.Label>
-                  <Form.Control as="textarea" cols={40} rows={5} value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
+                  <Form.Control as="textarea" cols={40} rows={6} value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
                 </Form.Group>
                 <Form.Group className="text-box">
                   <Form.Label style={{ marginTop: '20px' }}>Instructions</Form.Label>
-                  <Form.Control as="textarea" cols={40} rows={5} value={instructions} onChange={(event) => setInstructions(event.target.value)} />
+                  <Form.Control as="textarea" cols={40} rows={6} value={instructions} onChange={(event) => setInstructions(event.target.value)} />
                 </Form.Group>
                 <div className="button-spacing">
                   <Button variant="primary" type="submit" disabled={isLoading}>
