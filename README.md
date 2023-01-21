@@ -12,7 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installing
 1. Clone the repository: `git clone https://github.com/jcarney2024/codegenie.git`
 2. Install the dependencies: `npm install`
-3. Replace `process.env.REPLACE_WITH_YOUR_API_KEY` in the CodeInput.js file with your actual API key.
+3. Replace the value for `REACT_APP_REPLACE_WITH_YOUR_API_KEY` in the .env file with your actual API key.
 4. Start the development server: `npm start`
 5. Open http://localhost:3000 to view it in your browser.
 
@@ -23,6 +23,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Authors
 - Jack Carney - [jcarney2024](https://github.com/jcarney2024)
+
+## License
+
+This project is licensed under the GPL-3.0 License - see the [LICENSE](https://github.com/jcarney2024/CodeGenie/blob/dev/LICENSE) file for details.
+
+The GPL-3.0 is a copyleft open-source license that requires any derivative work to also be licensed under the same terms. This means that if you use any code from this project in your own project, your project must also be licensed under the GPL-3.0.
+It also requires you to provide the source code of your project if you distribute it.
+
+Please read the [LICENSE](https://github.com/jcarney2024/CodeGenie/blob/dev/LICENSE) file for more information and the terms and conditions of the license.
 
 ## Acknowledgments
 - This application is using OpenAI Codex API, Make sure to comply with the [terms and conditions](https://beta.openai.com/docs/usage-policies) of the API.
