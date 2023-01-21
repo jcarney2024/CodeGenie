@@ -1,6 +1,9 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5fff5573-a329-48f4-85ce-36c3ad181c54/deploy-status)](https://app.netlify.com/sites/codegenie/deploys) ![GitHub package.json version](https://img.shields.io/github/package-json/v/jcarney2024/CodeGenie) ![GitHub](https://img.shields.io/github/license/jcarney2024/CodeGenie) ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/jcarney2024/CodeGenie/react) ![Website](https://img.shields.io/website?url=https%3A%2F%2Fcodegenie.netlify.app) ![GitHub issues](https://img.shields.io/github/issues/jcarney2024/CodeGenie) ![GitHub pull requests](https://img.shields.io/github/issues-pr/jcarney2024/CodeGenie)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5fff5573-a329-48f4-85ce-36c3ad181c54/deploy-status)](https://app.netlify.com/sites/codegenie/deploys) ![GitHub package.json version](https://img.shields.io/github/package-json/v/jcarney2024/CodeGenie) ![GitHub](https://img.shields.io/github/license/jcarney2024/CodeGenie) ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/jcarney2024/CodeGenie/react) ![Website](https://img.shields.io/website?url=https%3A%2F%2Fcodegenie.app) ![GitHub issues](https://img.shields.io/github/issues/jcarney2024/CodeGenie) ![GitHub pull requests](https://img.shields.io/github/issues-pr/jcarney2024/CodeGenie)
 # CodeGenie
 CodeGenie is a web application that allows users to input a snippet of code and instructions, which then returns a response from OpenAI's Codex API. This app is built using React for the frontend and JavaScript for the backend, making use of Axios library to communicate with the Codex API.
+
+## Demo
+Want to preview the project? View the live demo [here](codegenie.app)!
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
