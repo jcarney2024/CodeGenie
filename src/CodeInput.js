@@ -4,9 +4,10 @@ import { Form, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import './CodeInput.css';
+import Center from 'react-center';
 
 const containerStyles = {
-  height: '100%',
+  height: '500px',
   width: '80%',
   display: 'flex',
   alignItems: 'center',
@@ -35,6 +36,8 @@ function CodeInput() {
       instruction: instructions,
       input: codeSnippet,
       model: 'code-davinci-edit-001',
+      temperature: '0',
+      top_p: '1',
     }, {
       headers: {
         'Content-Type': 'application/json',
@@ -72,51 +75,53 @@ function CodeInput() {
   }
 
   return (
-    <Container style={containerStyles} className='d-flex align-items-center'>
+    <Container style={containerStyles} className='h-100 d-flex align-items-center justify-content-center'>
       <div className="d-flex align-items-center">
-        <Form style={formStyles} onSubmit={handleSubmit}>
-          <Row className="grid-container mx-auto">
-            <Col xs={6}>
-              <Form.Group className="text-box">
-                <Form.Label>Code Snippet</Form.Label>
-                <Form.Control as="textarea" value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
-              </Form.Group>
-              <Form.Group className="text-box">
-                <Form.Label>Instructions</Form.Label>
-                <Form.Control as="textarea" rows="3" value={instructions} onChange={(event) => setInstructions(event.target.value)} />
-              </Form.Group>
-              <div className="button-spacing">
-                <Button variant="primary" type="submit" disabled={isLoading}>
-                  {isLoading ? <Spinner
-                    as="span"
-                    animation="border"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                  /> : 'Submit'}
-                </Button>
-              </div>
-            </Col>
-            <Col xs={6}>
-              <Form.Group className="response-text text-box" style={responseTextBoxStyles}>
-                <Form.Label>Response</Form.Label>
-                <Form.Control as="textarea" value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
-                {response &&
-                  <div>
-                    <div className="copy-button">
-                      <Button variant="secondary" onClick={handleCopy}>
-                        {copied ? <FontAwesomeIcon icon={faCheck} /> : 'Copy to clipboard'}
-                      </Button>
+        <Center>
+          <Form style={formStyles} onSubmit={handleSubmit}>
+            <Row className="grid-container mx-auto">
+              <Col xs={6}>
+                <Form.Group className="text-box">
+                  <Form.Label>Code Snippet</Form.Label>
+                  <Form.Control as="textarea" cols={40} rows={5} value={codeSnippet} onChange={(event) => setCodeSnippet(event.target.value)} />
+                </Form.Group>
+                <Form.Group className="text-box">
+                  <Form.Label style={{ marginTop: '20px' }}>Instructions</Form.Label>
+                  <Form.Control as="textarea" cols={40} rows={5} value={instructions} onChange={(event) => setInstructions(event.target.value)} />
+                </Form.Group>
+                <div className="button-spacing">
+                  <Button variant="primary" type="submit" disabled={isLoading}>
+                    {isLoading ? <Spinner
+                      as="span"
+                      animation="border"
+                      size="sm"
+                      role="status"
+                      aria-hidden="true"
+                    /> : 'Submit'}
+                  </Button>
+                </div>
+              </Col>
+              <Col xs={6}>
+                <Form.Group className="response-text text-box" style={responseTextBoxStyles}>
+                  <Form.Label>Response</Form.Label>
+                  <Form.Control as="textarea" cols={40} rows={15} value={response} onChange={(event) => setResponse(event.target.value)} disabled={true} />
+                  {response &&
+                    <div>
+                      <div className="copy-button">
+                        <Button variant="secondary" onClick={handleCopy}>
+                          {copied ? <FontAwesomeIcon icon={faCheck} /> : 'Copy to clipboard'}
+                        </Button>
+                      </div>
+                      <div className="copy-to-code-button">
+                        <Button variant="secondary" onClick={handleCopyToCode}>Copy to Code Snippet</Button>
+                      </div>
                     </div>
-                    <div className="copy-to-code-button">
-                      <Button variant="secondary" onClick={handleCopyToCode}>Copy to Code Snippet</Button>
-                    </div>
-                  </div>
-                }
-              </Form.Group>
-            </Col>
-          </Row>
-        </Form>
+                  }
+                </Form.Group>
+              </Col>
+            </Row>
+          </Form>
+        </Center>
       </div>
     </Container>
   );
