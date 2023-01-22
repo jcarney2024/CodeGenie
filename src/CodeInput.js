@@ -113,7 +113,7 @@ function CodeInput() {
                         </Button>
                       </div>
                       <div className="copy-to-code-button">
-                        <Button variant="secondary" onClick={handleCopyToCode}>Copy to Code Snippet</Button>
+                        <Button variant="secondary" onClick={handleCopyToCode}>Move to Code Snippet</Button>
                       </div>
                     </div>
                   }

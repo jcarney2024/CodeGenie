@@ -3,12 +3,13 @@ import React from 'react';
 import CodeInput from './CodeInput';
 import { FaGithub } from 'react-icons/fa';
 import packageJson from '../package.json';
+import { ReactComponent as CodeGenie } from './CodeGenie.svg';
 
 function App() {
   return (
     <div className="container">
-      <h1 class="h1">CodeGenie</h1>
-      <div className="center-content" style={{ paddingTop: "50px"}}>
+      <CodeGenie style={{ width: "50%", height: "50%" }} />
+      <div className="center-content" style={{ paddingTop: "50px" }}>
         <CodeInput />
       </div>
       <footer>
