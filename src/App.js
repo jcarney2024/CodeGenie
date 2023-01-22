@@ -1,9 +1,12 @@
-import './App.css';
-import React from 'react';
-import CodeInput from './CodeInput';
-import { FaGithub } from 'react-icons/fa';
-import packageJson from '../package.json';
-import { ReactComponent as CodeGenie } from './CodeGenie.svg';
+import "./App.css";
+
+import React from "react";
+import { FaGithub } from "react-icons/fa";
+
+import packageJson from "../package.json";
+
+import { ReactComponent as CodeGenie } from "./CodeGenie.svg";
+import CodeInput from "./CodeInput";
 
 function App() {
   return (
@@ -15,7 +18,8 @@ function App() {
       <footer>
         <p>© 2023 CodeGenie</p>
         <a href="https://github.com/jcarney2024/CodeGenie">
-          <FaGithub /> View this project on GitHub
+          <FaGithub />
+          View this project on GitHub
         </a>
         <p> Version: {packageJson.version}</p>
       </footer>

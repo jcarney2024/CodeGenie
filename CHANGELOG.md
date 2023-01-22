@@ -4,14 +4,14 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## *Unreleased*
+## _Unreleased_
 
 ### To-Do
 
 - Edit Formatting of the Form
-  -  Spacing Between Buttons
+  - Spacing Between Buttons
 
-### Added 
+### Added
 
 - Made the form more user friendly.
 - Added a copy to clipboard button for the response box.
