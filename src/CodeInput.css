@@ -1,0 +1,17 @@
+.button-spacing {
+    margin-top: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.response-text {
+    height: 200%;
+}
+
+.text-box {
+    width: 200%;
+}
