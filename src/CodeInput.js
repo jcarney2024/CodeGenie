@@ -113,7 +113,7 @@ function CodeInput() {
                     value={instructions}
                     onChange={(event) => setInstructions(event.target.value)}
                   />
-                </Form.Group>
+                </Form.Group>{" "}
                 <div className="button-spacing">
                   <Button variant="primary" type="submit" disabled={isLoading}>
                     {isLoading ? (
