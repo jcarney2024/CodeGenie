@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-These versions are currently being supported 
+These versions are currently being supported
 with security updates.
 
 | Version | Supported          |
@@ -12,5 +12,5 @@ with security updates.
 
 ## Reporting a Vulnerability
 
-To report a vulnerability, [submit an issue](https://github.com/jcarney2024/CodeGenie/issues) *WITHOUT*
+To report a vulnerability, [submit an issue](https://github.com/jcarney2024/CodeGenie/issues) _WITHOUT_
 disclosing the security vulnerability. We will reply promptly.
