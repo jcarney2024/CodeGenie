@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5fff5573-a329-48f4-85ce-36c3ad181c54/deploy-status)](https://app.netlify.com/sites/codegenie/deploys) ![GitHub package.json version](https://img.shields.io/github/package-json/v/jcarney2024/CodeGenie/v1.0.0) ![Website](https://img.shields.io/website?url=https%3A%2F%2Fcodegenie.app) ![GitHub issues](https://img.shields.io/github/issues/jcarney2024/CodeGenie) ![GitHub pull requests](https://img.shields.io/github/issues-pr/jcarney2024/CodeGenie)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5fff5573-a329-48f4-85ce-36c3ad181c54/deploy-status)](https://app.netlify.com/sites/codegenie/deploys) ![GitHub package.json version](https://img.shields.io/github/package-json/v/jcarney2024/CodeGenie/v1.0.0) ![Website](https://img.shields.io/website?url=https%3A%2F%2Flegacy.codegenie.app) ![GitHub issues](https://img.shields.io/github/issues/jcarney2024/CodeGenie) ![GitHub pull requests](https://img.shields.io/github/issues-pr/jcarney2024/CodeGenie)
 
 # CodeGenie
 
@@ -6,7 +6,7 @@ CodeGenie is a web application that allows users to input a snippet of code and 
 
 ## Demo
 
-Want to preview the project? View the live demo [here](codegenie.app)!
+Want to preview the project? View the live demo [here](legacy.codegenie.app)!
 
 ## Getting Started
 
