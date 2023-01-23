@@ -1,7 +1,7 @@
 # CodeGenie
 | Version | Status        | Preview      |
 |---------|---------------|--------------|
-| v1.0.0  | ✅ Released    | [View](legacy.codegenie.app) |
+| v1.0.0  | ✅ Released    | [View](https://legacy.codegenie.app) |
 | v2.0.0  | 🚧 In Progress | Coming Soon! |
 
 CodeGenie is a web application that allows users to input a snippet of code and instructions, which then returns a response from OpenAI's Codex API. This app is built using React for the frontend and JavaScript for the backend, making use of Axios library to communicate with the Codex API.
@@ -13,7 +13,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 - Node.js
 - npm
-- OpenAI API key (You can get one by signing up on [OpenAI website](beta.openai.com), however the Codex model is still in closed beta.)
+- OpenAI API key (You can get one by signing up on [OpenAI website](https://beta.openai.com), however the Codex model is still in closed beta.)
 
 
 ### Installing
