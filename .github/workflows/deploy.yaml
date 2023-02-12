@@ -3,8 +3,6 @@ name: React CI
 on:
   push:
     branches: [ "v2.0.0" ]
-  pull_request:
-    branches: [ "v2.0.0" ]
 
 permissions:
   contents: read
