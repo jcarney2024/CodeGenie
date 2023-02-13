@@ -16,6 +16,8 @@ jobs:
       url: ${{ steps.build-publish.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
     - name: Install dependencies
       run: npm install
     - id: build-publish
@@ -23,3 +25,4 @@ jobs:
       with:
         path: build
         build_command: craco build
+        checkout: false
