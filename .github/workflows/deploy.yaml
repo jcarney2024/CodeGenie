@@ -16,6 +16,8 @@ jobs:
       url: ${{ steps.build-publish.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+    - name: Install dependencies
+      run: npm install
     - id: build-publish
       uses: bitovi/github-actions-react-to-ghp@v1.2.0
       with:
