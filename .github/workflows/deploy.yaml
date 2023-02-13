@@ -17,6 +17,9 @@ jobs:
 
     - name: Install Dependencies
       run: npm install
+      
+    - name: Check if craco is installed
+      run: npm run craco --version
 
     - name: Build the App
       run: npm run craco build
