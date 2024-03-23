@@ -1,3 +1,5 @@
+### Deprecated due to the removel of the OpenAI Codex API
+
 # CodeGenie
 | Version | Status        | Preview      |
 |---------|---------------|--------------|
